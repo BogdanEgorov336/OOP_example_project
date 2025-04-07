@@ -6,18 +6,27 @@ private:
 
 	const int BEST_MARK = 9;
 
+	int CountBestStudents(Student* students, int size) {
+		return 0;
+	}
+
 public:
 
-	Student GetBestStudent(Student* student_list, int size) {
+	Student* GetBestStudent(Student* students, int size, int* count) {
+
+		*count = CountBestStudents(students, size);
+
+		Student* list_of_best = new Student[*count];
+		int j = 0;
+
 
 		for (int i = 0; i < size; i++) {
 
-			if (student_list[i].avg_mark >= BEST_MARK) {
-				return student_list[i];
+			if (students[i].avg_mark >= BEST_MARK) {
+				list_of_best[j++] = students[i];
 			}
 		}
 
-		Student empty{};
-		return empty;
+		return list_of_best;
 	}
 };
