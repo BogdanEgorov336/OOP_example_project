@@ -19,9 +19,7 @@ public:
 			+ "\nAge: " + to_string(age)
 			+ "\nMark: " + to_string(avg_mark)
 			+ "\nAlive: " + (alive ? "yes." : "no.")
-			+ "\n\n";
+			+ "\n";
 	}
-
-
 
 };

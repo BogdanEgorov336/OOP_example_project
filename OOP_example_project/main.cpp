@@ -6,37 +6,26 @@ void change(Student st) {
 	st.age = 15;
 	st.avg_mark = 10;
 	st.alive = false;
+
 }
 
 int main() {
 
-	Student st1, temp;
+	Student* st1 = new Student;
 
-	//1-st student init
-	st1.name = "Bogdan";
-	st1.age = 14;
-	st1.avg_mark = 9.5;
-	st1.alive = true;
+	st1->name = "Vlad";
+	st1->age = 15;
+	st1->avg_mark = 9.9;
+	st1->alive = true;
 
-	temp = st1;
+	Student* st2 = st1;
 
-	cout << "Before\n: " << st1.getString() << endl;
-	cout << temp.getString();
+	cout << "Before: " << endl << st1->getString() << endl;
 
-	st1.name = "Vova";
+	st2->name = "Matvey";
 
-	cout << "After: " << st1.getString() << endl;
-	cout << temp.getString();
+	cout << "After: " << endl << st1->getString() << endl;
 
 
-	//cout << st2.getString();
-
-	//string name = st1.avg_mark > st2.avg_mark
-	//	? st1.name : st2.name;
-
-	//Student t = st1.avg_mark > st2.avg_mark ? st1 : st2;
-	//cout << t.name << endl;
-
-	system("pause");
 	return 0;
 }
