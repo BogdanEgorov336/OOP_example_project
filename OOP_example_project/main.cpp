@@ -8,7 +8,7 @@ int main() {
 
 	for (int i = 0; i < st1.countMark; i++) {
 
-		cout << st1.getMark(i) << " ";
+		cout << st1.getMark(i) << " " << endl;
 	}
 
 	return 0;

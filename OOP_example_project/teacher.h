@@ -12,7 +12,7 @@ private:
 
 public:
 
-	Student* GetBestStudent(Student* students, int size, int* count) {
+	/*Student* GetBestStudent(Student* students, int size, int* count) {
 
 		*count = CountBestStudents(students, size);
 
@@ -28,5 +28,5 @@ public:
 		}
 
 		return list_of_best;
-	}
+	}*/
 };
