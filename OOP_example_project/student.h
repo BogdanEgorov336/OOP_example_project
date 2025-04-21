@@ -25,7 +25,7 @@ public:
 	//}
 
 	//constructor with arguments
-	Student(string nm) : Student(nm, count, 0, true) {
+	Student(string nm) : Student(nm, countMark, 0, true) {
 
 		cout << "...constructor with arguments" << endl;
 		name = nm;
@@ -41,7 +41,7 @@ public:
 		this->name = name;
 		this->age = age;
 		this->alive = alive;
-		this-> countMark
+		this->countMark;
 		marks = new int[countMark];
 		for (int i = 0; i < countMark; i++) {
 
