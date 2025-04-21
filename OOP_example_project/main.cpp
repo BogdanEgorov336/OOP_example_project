@@ -2,21 +2,14 @@
 
 int main() {
 
-	Student student1{};
-	/*Student student2("Alex");
-	Student student3("Vlad", 13, 10, true);
-	Student student4(student2);*/
+	Student st1{ "Alex", 15, 10, true};
 
-	Student student2{ "Alex" };
-	//Student student3{ "Vlad", 13, 10, true };
+	cout << st1.ToString() << endl;
 
-	Student student3{ "Vlad", 13};
-	Student student4{ student3 };
+	for (int i = 0; i < st1.countMark; i++) {
 
-	cout << student1.ToString() << endl;
-	cout << student2.ToString() << endl;
-	cout << student3.ToString() << endl;
-	cout << student4.ToString() << endl;
+		cout << st1.getMark(i) << " ";
+	}
 
 	return 0;
 }
