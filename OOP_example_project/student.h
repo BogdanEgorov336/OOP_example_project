@@ -13,19 +13,13 @@ public:
 	bool alive;
 
 	//default constructor (without any arguments)
-	Student() {
+	Student() : Student("No name", 13, 10, true) {
 		
 		cout << "...default-constructor" << endl;
-
-		name = "No name";
-		age = 13;
-		marks = nullptr;
-		countMark = 0;
-		alive = true;
 	}
 
 	//constructor with arguments
-	Student(string nm) : Student(nm, 13, 4.0, 0, true) {
+	Student(string nm) : Student(nm, 13, 0, 4.0, true) {
 
 		cout << "...constructor with arguments" << endl;
 		name = nm;
@@ -40,7 +34,7 @@ public:
 		this->name = name;
 		this->age = age;
 		this->alive = alive;
-		this->countMark;
+		this->countMark = countMark;
 		marks = new int[countMark];
 		for (int i = 0; i < countMark; i++) {
 
@@ -76,7 +70,7 @@ public:
 
 		return "Name: " + name
 			+ "\nAge: " + to_string(age)
-			+ "\nMark: " + getAllMarks();
+			+ "\nMark: " + getAllMarks()
 			+ "\nAlive: " + (alive ? "yes." : "no.")
 			+ "\n";
 	}
