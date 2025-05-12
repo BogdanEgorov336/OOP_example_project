@@ -23,7 +23,7 @@ public:
 	void remove(int index);
 	void remove();
 
-	int size();
+	int length();
 	int get(int index);
 	void set(int index, int value);
 	void clear();

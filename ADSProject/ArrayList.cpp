@@ -1,66 +1,109 @@
 #include "ArrayList.h"
 
+
+
 void ArrayList :: add(int value) {
 
-	int* list = new int[size + 1];
+	if (array != nullptr) {
 
-	for (int i = 0; i < size; i++) {
+		int* newArray = new int[size + 1];
 
-		list[i] = array[i];
+		for (int i = 0; i < size; i++) {
+
+			newArray[i] = array[i];
+		}
+
+		delete[] array;
+
+		array = newArray;
+		size++;
 	}
 
-	list[size - 1] = value;
-	
-	delete[] array;
 }
+//O(N)
 
 void ArrayList :: add(int index, int value) {
 
-	if (index >= 0 && index < size && array != nullptr) {
-		
-		
-	}
+	if (array != nullptr) {
 
-	int* list = new int[size + 1];
+		int* newArray = new int[size + 1];
 
-	for (int i = 0; i < size + 1; i++) {
+		for (int i = 0; i < size; i++) {
 
-		if (i = index) {
-
-			list[i] = value;
+			newArray[i] = array[i];
 		}
 
-		list[i] = array[i];
+		delete[] array;
+
+		array = newArray;
+		size++;
+	}
+
+}
+
+void ArrayList::remove() {
+
+	if (array == nullptr || size <= 0) {
+
+		return;
+	}
+
+	size--;
+
+	int* newArray = new int[size];
+
+	for (int i = 0; i < size; i++) {
+		
+		newArray[i] = array[i];
 	}
 
 	delete[] array;
+
+	array = newArray;
 }
 
-int ArrayList :: size() {
+
+int ArrayList::get(int index) {
+
+	if (array == nullptr || index < 0 || index >= size) {
+		
+		return 0;
+	}
+
+	return array[index];
+}
+//O(1)
+
+void ArrayList::set(int index, int value) {
+
+	if (array == nullptr || index < 0 || index >= size) {
+
+		return;
+	}
+
+	array[index] = value;
+}
+//O(1)
+
+void ArrayList::clear() {
+
+	if (array != nullptr) {
+	
+		delete[] array;
+
+		array = nullptr;
+		size = 0;
+	}
+}
+
+int ArrayList::length() {
 
 	return size;
 }
 
-int ArrayList::get(int index) {
-
-	if (array == ptr)
-
-
-	return array[index];
-}
-
-void ArrayList::set(int index, int value) {
-
-	array[index] = value;
-}
-
-void ArrayList::clear() {
-
-	size = 0;
-}
 
 bool ArrayList::isEmpty() {
 
-	return size() == 0;
+	return length() == 0;
 }
 
