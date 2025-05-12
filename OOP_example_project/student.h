@@ -4,61 +4,24 @@
 
 class Student {
 
-public:
+private:
 	
 	string name;
-	int age;
-	int* marks;
-	int countMark;
-	bool alive;
+	int    age;
+	int*   marks;
+	int    countMark;
+	bool   alive;
 
-	//default constructor (without any arguments)
-	Student() : Student("No name", 13, 10, true) {
-		
-		//cout << "...default-constructor" << endl;
-	}
+	string getAllMarks();
 
-	//constructor with arguments
-	Student(string nm) : Student(nm, 13, 0, true) {
+public:
 
-		//cout << "...constructor with arguments" << endl;
-		name = nm;
-		age = 13;
-		alive = true;
-	}
-
-	//canonical constructor
-	Student(string name, int age, int countMark, bool alive) {
-
-		//cout << "...canonical-constructor with arguments" << endl;
-		this->name = name;
-		this->age = age;
-		this->alive = alive;
-		this->countMark = countMark;
-		marks = new int[countMark];
-		for (int i = 0; i < countMark; i++) {
-
-			*(marks + i) = 4;
-		}
-	}
-	
-	//copy-constructor
+	Student() : Student("No name", 13, 10, true) {}
+	Student(string nm) : Student(nm, 13, 0, true) {}
+	Student(string name, int age, int countMark, bool alive);
 	Student(const Student& student) : Student(student.name, student.age,
-		student.countMark, student.alive) {
-
-	}
-
-	//destructor
-	~Student() {
-
-		//cout << "destructor..." << endl;
-
-		if (marks) { 
-			delete[] marks;
-		}
-	}
-
-
+		student.countMark, student.alive) {}
+	~Student();
 	
 	//dinamic code
 	string ToString() {

@@ -1,6 +1,8 @@
 #include "initializer.h"
+#include <time.h>
 
 int main() {
+	srand(time(0));
 
 	int count;
 	cout << "Enter amount of students: ";
@@ -11,9 +13,9 @@ int main() {
 	Initializer initializer;
 
 	initializer.init(list, count);
-	 
+
 	for (int i = 0; i < count; i++) {
-	
+
 		cout << list[i].ToString() << endl;
 	}
 
