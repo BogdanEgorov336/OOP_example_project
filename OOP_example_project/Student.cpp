@@ -1,75 +1,88 @@
-#include "student.h"
+#include "Student.h"
 
-//default constructor (without any arguments)
-Student::Student("No name", 13, 10, true) {}
+string Student::getAllMarks() {
+	if (countMark == 0) {
+		return "[]";
+	}
 
-//constructor with arguments
-Student::Student("", 13, 0, true) {}
+	string s = "";
 
-//canonical constructor
-Student(string name, int age, int countMark, bool alive) {
+	for (int i = 0; i < countMark; i++)
+	{
+		s += to_string(marks[i]) + " ";
+	}
 
-	//cout << "...canonical-constructor with arguments" << endl;
+	return s;
+}
+
+// canonical-constructor
+Student::Student(string name, int age, int countMark, bool alive) {
+	//cout << "canonical-constructor..." << endl;
 	this->name = name;
 	this->age = age;
 	this->alive = alive;
 	this->countMark = countMark;
 	marks = new int[countMark];
-	for (int i = 0; i < countMark; i++) {
-
-		*(marks + i) = 4;
+	for (int i = 0; i < countMark; i++)
+	{
+		marks[i] = 4;
 	}
 }
 
-//copy-constructor
-Student(const Student& student) : Student(student.name, student.age,
-	student.countMark, student.alive) {
-
-}
-
-//destructor
-~Student() {
-
+// destructor
+Student::~Student() {
 	//cout << "destructor..." << endl;
 
-	if (marks) {
+	if (marks != nullptr) {
 		delete[] marks;
 	}
 }
 
-string ToString() {
+string Student::getName() { return name; }
+void Student::setName(string name) { this->name = name; }
 
-	return "Name: " + name
-		+ "\nAge: " + to_string(age)
-		+ "\nMark: " + getAllMarks()
-		+ "\nAlive: " + (alive ? "yes." : "no.")
-		+ "\n";
-}
-
-string getAllMarks() {
-
-	if (countMark == 0) {
-		return "[]";
+int Student::getAge() { return age; }
+void Student::setAge(int age) {
+	if (age >= 13 && age <= 18) {
+		this->age = age;
 	}
-
-	string str = "";
-
-	for (int i = 0; i < countMark; i++) {
-
-		str += to_string(*(marks + i)) + " ";
-	}
-
-	return str;
 }
 
-int getMark(int index) {
-	return index < 0 || index > countMark || !marks ? 0 : marks[index];
+int Student::getCountMark() { return countMark; }
+
+int* Student::getMarks() {
+	return marks;
 }
 
-void setMark(int index, int mark) {
+bool Student::isAlive() { return alive; }
+void Student::setAlive(bool alive) { this->alive = alive; }
 
-	if (index >= 0 && index < countMark) {
+int Student::getMark(int index) {
+	return index < 0 || index >= countMark || !marks ? 0 : marks[index];
+}
 
+void Student::setMark(int index, int mark) {
+	if (index >= 0 && index < countMark && marks) {
 		marks[index] = mark;
 	}
+}
+
+string Student::toString() {
+	string s = "Name: " + this->name;
+	s += ", age: " + to_string(this->age);
+	s += ", marks: " + getAllMarks();
+	s += ", alive: ";
+	s += (this->alive ? "yes" : "no");
+	return s;
+}
+
+double Student::getAverageMark() {
+	double sum = 0;
+
+	for (int i = 0; i < countMark; i++)
+	{
+		sum += marks[i];
+	}
+
+	return sum / countMark;
 }
