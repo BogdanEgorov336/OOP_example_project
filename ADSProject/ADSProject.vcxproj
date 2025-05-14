@@ -21,9 +21,11 @@
   <ItemGroup>
     <ClCompile Include="ArrayList.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Queue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrayList.h" />
+    <ClInclude Include="Queue.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
