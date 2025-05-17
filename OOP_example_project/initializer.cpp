@@ -1,30 +1,30 @@
 #include "Initializer.h"
 
-void Initializer::init(Student*& list, int count) {
-	if (list == nullptr && count > 0) {
-		list = new Student[count];
+void Initializer::init(Group group) {
+	if (group.getCapacity() <= 0) {
+		return;
 	}
 
-	string names[]{ "Anna", "Alex", "Vlad" , "Matvey" ,
-		"Ivan" , "Timur", "Timofey", "Nikita", "Vladimir",
-		"Bogdan", "Rodion", "Alexey", "Daniil",
-		"Victor", "Kate", "Alice", "Maks" };
-
-	int minMark = 4;
-	int maxMark = 10;
+	string names[]{ "Alex", "Matvey", "Veronika",
+		"Sofia", "Alice", "Anna", "Stepan",
+	"Daniil", "Arsenyi", "Vlad", "Bogdan", "Victor",
+	"Ilya", "Peter", "Harry", "Gleb" };
 
 	int minAge = 13;
 	int maxAge = 18;
 
-	for (int i = 0; i < count; i++)
+	int minMark = 6;
+	int maxMark = 10;
+
+	for (int i = 0; i < group.getCapacity(); i++)
 	{
-		list[i].setName(names[rand() % 17]);
-		list[i].setAge(rand() % (maxAge - minAge + 1) + minAge);
-		for (int j = 0; j < list[i].getCountMark(); j++)
+		group.get(i).setName(names[rand() % 15]);
+		group.get(i).setAge(rand() % (maxAge - minAge + 1) + minAge);
+		for (int j = 0; j < group.get(i).getCountMarks(); j++)
 		{
 			//list[i].getMarks()[j] = rand() % (maxMark - minMark + 1) + minMark;
-			//*(list[i].getMarks() + j) = rand() % (maxMark - minMark + 1) + minMark;
-			list[i].setMark(j, rand() % (maxMark - minMark + 1) + minMark);
+			//*(list[i].getMarks() + j) = rand() % (maxMark - minMark + 1) + minMark;				
+			group.get(i).setMark(j, rand() % (maxMark - minMark + 1) + minMark);
 		}
 	}
 }

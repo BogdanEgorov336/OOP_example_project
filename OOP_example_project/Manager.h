@@ -1,10 +1,10 @@
+#pragma once
 #include "Group.h"
 
-class Manager {
-
+// function class
+class Manager
+{
 public:
-
-	Group getBestStudents(Group group);
-	Group getWorstStudents(Group group);
-
+	Group findBestStudents(Group group);
+	Group findWorstStudents(Group group);
 };

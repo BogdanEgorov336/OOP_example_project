@@ -1,26 +1,27 @@
 #pragma once
-#include "student.h"
+#include "Student.h"
 
-class Group {
-
+class Group
+{
 private:
-
 	Student* list;
 	int count;
-
-public: 
-
+	int capacity;
+public:
 	Group();
+	Group(int capacity);
 	Group(Student* list, int count);
 	~Group();
 
-	Student getStudent(int index);
-	/*void add(Student student);
-	void remove(Student student);
-	void remove(int index);*/
-	void set(Student st1, Student st2);
-	void set(int index, Student st2);
+	Student get(int index);
+	void set(int index, Student student);
 	int getCount();
+	int getCapacity();
+	void add(Student student);
+	//	void add(int index, Student student);
+	void remove(Student student);
+	void remove(int index);
+	void clear();
+	bool isEmpty();
 	string toString();
-
 };
